@@ -2,3 +2,4 @@
 /rbac-admin/rbac-admin.iml
 /.idea/
 /rbac.iml
+/rbac-ui/node_modules/
