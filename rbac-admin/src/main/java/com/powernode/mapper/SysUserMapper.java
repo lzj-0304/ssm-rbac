@@ -1,6 +1,10 @@
 package com.powernode.mapper;
 
 import com.powernode.domain.SysUser;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: Mr.T
@@ -18,4 +22,13 @@ public interface SysUserMapper {
     int updateByPrimaryKeySelective(SysUser record);
 
     int updateByPrimaryKey(SysUser record);
+
+
+    SysUser login(@Param("username") String username,@Param("password") String password);
+
+    List<String> queryUserHasPermissions(@Param("userId") Long userId);
+
+    List<SysUser> getByPage(@Param("params") Map<String,Object> params);
+
+    SysUser queryUserByUserName(@Param("userName") String userName);
 }

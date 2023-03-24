@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.powernode.mapper.SysUserRoleMapper">
+  <resultMap id="BaseResultMap" type="com.powernode.domain.SysUserRole">
+    <!--@mbg.generated-->
+    <!--@Table sys_user_role-->
+    <id column="user_id" jdbcType="BIGINT" property="userId" />
+    <id column="role_id" jdbcType="BIGINT" property="roleId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    user_id, role_id
+  </sql>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    <!--@mbg.generated-->
+    delete from sys_user_role
+    where user_id = #{userId,jdbcType=BIGINT}
+      and role_id = #{roleId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.powernode.domain.SysUserRole">
+    <!--@mbg.generated-->
+    insert into sys_user_role (user_id, role_id)
+    values (#{userId,jdbcType=BIGINT}, #{roleId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.powernode.domain.SysUserRole">
+    <!--@mbg.generated-->
+    insert into sys_user_role
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="roleId != null">
+        role_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="roleId != null">
+        #{roleId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="countUserRolesByUserId" resultType="java.lang.Long">
+        select  count(1) from sys_user_role where user_id=#{userId}
+    </select>
+  <delete id="deleteUserRolesByUserId">
+    delete  from sys_user_role where user_id=#{userId}
+  </delete>
+
+  <insert id="saveUserRolesBatch">
+      insert into  sys_user_role(user_id, role_id)  values
+      <foreach collection="list" item="item" separator=",">
+          (#{item.userId},#{item.roleId})
+      </foreach>
+  </insert>
+
+  <select id="getRoleIdsByUserId" resultType="java.lang.Long">
+    select r.role_id from sys_user_role ur inner  join  sys_role r on ur.role_id=r.role_id where r.del_flag=0 and r.status=0 and user_id=#{userId}
+  </select>
+</mapper>

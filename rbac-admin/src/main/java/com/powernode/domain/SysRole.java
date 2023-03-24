@@ -10,67 +10,37 @@ import lombok.NoArgsConstructor;
 
 /**
  * @Author: Mr.T
- * @Date:   2023/3/7
+ * @Date:   2023/3/13
  */
 /**
-    * 用户信息表
+    * 角色信息表
     */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SysUser implements Serializable {
+public class SysRole implements Serializable {
     /**
-    * 用户ID
+    * 角色ID
     */
-    private Long userId;
+    private Long roleId;
 
     /**
-    * 部门编号
+    * 角色名称
     */
-    private Long deptId;
+    private String roleName;
 
     /**
-    * 用户账号
+    * 显示顺序
     */
-    private String userName;
+    private Integer roleSort;
 
     /**
-    * 用户昵称
+    * 角色备注
     */
-    private String nickName;
+    private String remark;
 
     /**
-    * 用户类型（0超级用户 1系统用户）
-    */
-    private Integer userType;
-
-    /**
-    * 用户邮箱
-    */
-    private String email;
-
-    /**
-    * 手机号码
-    */
-    private String phone;
-
-    /**
-    * 用户性别（0男 1女 2未知）
-    */
-    private Integer sex;
-
-    /**
-    * 头像地址
-    */
-    private String avatar;
-
-    /**
-    * 密码
-    */
-    private String password;
-
-    /**
-    * 帐号状态（0正常 1停用）
+    * 角色状态（0正常 1停用）
     */
     private Integer status;
 
@@ -78,16 +48,6 @@ public class SysUser implements Serializable {
     * 删除标志（0存在 2删除）
     */
     private Integer delFlag;
-
-    /**
-    * 最后登录IP
-    */
-    private String loginIp;
-
-    /**
-    * 最后登录时间
-    */
-    private Date loginDate;
 
     /**
     * 创建者

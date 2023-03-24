@@ -10,84 +10,69 @@ import lombok.NoArgsConstructor;
 
 /**
  * @Author: Mr.T
- * @Date:   2023/3/7
+ * @Date:   2023/3/11
  */
 /**
-    * 用户信息表
+    * 菜单权限表
     */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SysUser implements Serializable {
+public class SysMenu implements Serializable {
     /**
-    * 用户ID
+    * 菜单ID
     */
-    private Long userId;
+    private Long menuId;
 
     /**
-    * 部门编号
+    * 菜单名称
     */
-    private Long deptId;
+    private String menuName;
 
     /**
-    * 用户账号
+    * 父菜单ID
     */
-    private String userName;
+    private Long parentId;
 
     /**
-    * 用户昵称
+    * 显示顺序
     */
-    private String nickName;
+    private Integer orderNum;
 
     /**
-    * 用户类型（0超级用户 1系统用户）
+    * 路由地址
     */
-    private Integer userType;
+    private String path;
 
     /**
-    * 用户邮箱
+    * 组件路径
     */
-    private String email;
+    private String component;
 
     /**
-    * 手机号码
+    * 菜单类型（0目录 1菜单 2按钮）
     */
-    private String phone;
+    private Integer menuType;
 
     /**
-    * 用户性别（0男 1女 2未知）
+    * 菜单状态（0显示 1隐藏）
     */
-    private Integer sex;
+    private Integer visible;
 
     /**
-    * 头像地址
-    */
-    private String avatar;
-
-    /**
-    * 密码
-    */
-    private String password;
-
-    /**
-    * 帐号状态（0正常 1停用）
+    * 菜单状态（0正常 1停用）
     */
     private Integer status;
 
     /**
-    * 删除标志（0存在 2删除）
+    * 权限标识
     */
-    private Integer delFlag;
+    private String perms;
 
     /**
-    * 最后登录IP
+    * 菜单图标
     */
-    private String loginIp;
-
-    /**
-    * 最后登录时间
-    */
-    private Date loginDate;
+    private String icon;
 
     /**
     * 创建者

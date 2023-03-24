@@ -1,11 +1,15 @@
 package com.powernode.service;
 
+import com.powernode.common.Page;
 import com.powernode.domain.SysUser;
-    /**
+
+import java.util.List;
+
+/**
  * @Author: Mr.T
- * @Date:   2023/3/7
+ * @Date: 2023/3/7
  */
-public interface SysUserService{
+public interface SysUserService {
 
 
     int deleteByPrimaryKey(Long userId);
@@ -20,4 +24,11 @@ public interface SysUserService{
 
     int updateByPrimaryKey(SysUser record);
 
+    SysUser login(String username, String password);
+
+    List<String> queryUserHasPermissions(Long userId);
+
+    Page getByPage(Page page);
+
+    SysUser queryUserByUserName(String userName);
 }
